@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
+    <title>
+    {% block title %}
+       Сайт портфолио
+    {% endblock title %}
+        </title>
+</head>
+<body>
+    {% block header %}
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <h1 class="heading">Главная страница</h1>
+                <div class="header__top-info">
+                    <span class="header__date">{% now 'j.m.Y' %}</span>
+                    <a href="/" class="header__top-logo link">SITEview</a>
+                    {% if request.user.is_authenticated %}
+                    <a href="#" class="header__user-link link">{{request.user.username}}</a>
+                    <a href="{% url 'logout' %}" class="header__user-link link">Выход</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="header__user-link link">Войти</a>
+                    <a href="{% url 'register' %}" class="header__user-link link">Регистрация</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom">
+            <div class="container">
+                <nav class="header__bottom-nav">
+                    <a href="/" class="header__bottom-nav-link link">Главная</a>
+                    <a href="/" class="header__bottom-nav-link link">Новости</a>
+                    <a href="/" class="header__bottom-nav-link link">О нас</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    {% endblock header %}
+    
+    {% block content %}{% endblock content %}
+
+    
+    {% block footer %}
+        <!-- <footer class="footer">
+            <div class="footer__top">
+                <div class="container">
+                    <nav class="footer__top-nav">
+                        <a href="/" class="footer__top-nav-link link">Главная</a>
+                        <a href="/" class="footer__top-nav-link link">Новости</a>
+                        <a href="/" class="footer__top-nav-link link">О нас</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="container">
+                    <div class="date" style="text-align: center;">
+                        <span class="date" style="text-align: center;">{% now 'Y' %} г.</span>
+                    </div>
+                </div>
+            </div>
+        </footer> -->
+    {% endblock footer %}    
+</body>
+</html>

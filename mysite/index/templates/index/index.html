@@ -1,0 +1,36 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+{% block title %}
+    Просто сайт
+{% endblock %}
+
+
+{% block content %}
+<main class="main">
+    <section class="hero">
+        <div class="container">
+            <div class="hero__block">
+                <div class="hero_block-img">
+                    <img class="hero__block-pic" src="{% static 'index/img/proger.jpg' %}" alt="">
+                </div>
+                <div class="hero__block-text">
+                    <h3 class="hero__block-heading">Хотите сайт?</h3>
+                    <p class="hero__block-descr">
+                        Привет!!! Я занимаюсь web-разработкой на фреймворке Django.
+                        Этот сайт я сделал, как портфолио. Так же пишу backend и frontend вэб-приложения.
+                        Дизайн сайта взят из головы, так как я не web-дизайнер, но дизайн Вашего приложения может быть
+                        абсолютно любой и я с радостью сверстаю сайт по Вашему макету или можем обсудить его вместе.
+                    </p>
+                </div>
+            </div>
+            <!-- <video width="400" controls>
+                <source src="{% static 'index/img/video_lena.mp4' %}">
+            </video> -->
+        </div>
+    </section>
+</main>
+    
+{% endblock content %}
+    
+    
