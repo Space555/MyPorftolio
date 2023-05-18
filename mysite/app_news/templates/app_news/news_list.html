@@ -1,0 +1,47 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+{% block title %}
+Блок новостей и постов
+{% endblock title %}
+
+
+{% block content %}
+<section class="news">
+    <div class="container">
+        {% if news %}
+        <ul class="news__list list">
+            {% for n in news  %}
+                <li class="news__list-item">
+                    <div class="news__user">
+                        <div class="news__pic-block">
+                        {% if n.author.profile.avatar %}
+                            <img src="{{n.author.profile.avatar.url}}" width="200" height="200" alt="" class="news__ava">
+                        {% else %}
+                            <img src="{% static 'index/img/icon-user.png' %}" width="200" height="200" alt="" class="news__ava">
+                        {% endif %}
+                        </div>
+                        <div class="news__username">
+                            <span class="news__username">{{n.author.username}}</span>
+                        </div>
+                    </div>
+                    <a href="#" class="news__detail-link link"><h3 class="news__head">{{n.title}}</h3></a>
+                    <div class="news__info">
+                        <span class="news__span">{{n.category_new}}</span>
+                        <span class="news__span">{{n.created}}</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="news__not">
+            Нет новостей
+        </p>
+        {% endif %}
+        <a href="{% url 'create_news' %}" class="news__create link">Создать новость</a>
+    </div>
+</section>
+    
+{% endblock content %}
+    
+    

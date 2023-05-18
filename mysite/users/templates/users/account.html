@@ -1,0 +1,41 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{%block title%}{{request.user.username}}{%endblock%}
+{% block content %}
+    <section class="account">
+        <div class="container">
+           <div class="account__user-block">
+               <div class="account__img-block">
+                   {% if account.avatar %}
+                   <a href="{{account.avatar.url}}">
+                       <img src="{{account.avatar.url}}" alt="{{account.user.username}}" class="account__photo">
+                   </a>
+                   {% else %}
+                   <img src="{% static 'index/img/icon-user.png' %}" alt="{{account.user.username}}" class="account__photo">
+                   {% endif %}
+               </div>
+               <div class="account__user-info">
+                   <ul class="account__list list">
+                       <li class="account__list-item">
+                           <span class="account__title">Имя пользователя: </span>
+                           {{ account.user.username }}
+                       </li>
+                       <li class="account__list-item">
+                           <span class="account__title">ФИО: </span>
+                           {{ account.full_name }}
+                       </li>
+                       <li class="account__list-item">
+                           <span class="account__title">E-mail: </span>
+                           {{ account.user.email }}
+                       </li>
+                       <li class="account__list-item">
+                           <span class="account__title">Город: </span>
+                           {{ account.city }}
+                       </li>
+                   </ul>
+                   <a class="account__update-link link" href="{% url 'update' %}">Обновить</a>
+               </div>
+           </div>
+        </div>
+    </section>
+{% endblock %}

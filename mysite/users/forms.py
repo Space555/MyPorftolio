@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from users.models import Profile
+
 
 class ProfileForm(UserCreationForm):
     full_name = forms.CharField(required=True, label='', max_length=300, widget=forms.TextInput(attrs={'placeholder': 'Введите ФИО *',
@@ -21,3 +23,17 @@ class ProfileForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'E-mail'}))
+
+    class Meta:
+        model = User
+        fields = ['email']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['city', 'avatar', 'full_name']

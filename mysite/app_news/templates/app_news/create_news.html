@@ -1,0 +1,26 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Создать новость
+{% endblock title %}
+
+
+{% block content %}
+<section class="create_new">
+    <div class="container">
+        <form action="{% url 'create_news' %}" method="post" class="create__new-form">
+            {% csrf_token %}
+            {{form.title}}
+            {{form.descr}}
+            {{form.link_new}}
+            {{form.sourse_new}}
+            {{form.category_new}}
+            <button class="create_new__btn" type="submit">Создать</button>
+        </form>
+    </div>
+</section>
+{% endblock content %}
+    
+    

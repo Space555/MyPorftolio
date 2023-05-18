@@ -1,0 +1,37 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{% block content %}
+<section class="update">
+    <div class="container">
+        <form class="update__form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="update__avatar-block">
+                {% if request.user.profile.avatar %}
+                <a href="{{request.user.profile.avatar.url}}" class="update__link link">
+                    <img src="{{request.user.profile.avatar.url}}" alt="" class="update__img">
+                </a>
+                <div class="update__avtar-input">
+                    <svg class="update__svg" xmlns="http://www.w3.org/2000/svg" height="80" viewBox="0 96 960 960" width="80"><path d="M453 776h60V610h167v-60H513V376h-60v174H280v60h173v166Zm27.266 200q-82.734 0-155.5-31.5t-127.266-86q-54.5-54.5-86-127.341Q80 658.319 80 575.5q0-82.819 31.5-155.659Q143 347 197.5 293t127.341-85.5Q397.681 176 480.5 176q82.819 0 155.659 31.5Q709 239 763 293t85.5 127Q880 493 880 575.734q0 82.734-31.5 155.5T763 858.316q-54 54.316-127 86Q563 976 480.266 976Zm.234-60Q622 916 721 816.5t99-241Q820 434 721.188 335 622.375 236 480 236q-141 0-240.5 98.812Q140 433.625 140 576q0 141 99.5 240.5t241 99.5Zm-.5-340Z"/></svg>
+                    <input type="file" name="avatar" accept="image/*" id="id_avatar" class="update__avatar-file">
+                </div>
+            {% else %}
+                     <a href="#" class="update__link link">
+                        <img src="{% static 'index/img/icon-user.png' %}" alt="" class="update__img">
+                    </a>
+                    <div class="update__avtar-input">
+                        <svg class="update__svg" xmlns="http://www.w3.org/2000/svg" height="80" viewBox="0 96 960 960" width="80"><path d="M453 776h60V610h167v-60H513V376h-60v174H280v60h173v166Zm27.266 200q-82.734 0-155.5-31.5t-127.266-86q-54.5-54.5-86-127.341Q80 658.319 80 575.5q0-82.819 31.5-155.659Q143 347 197.5 293t127.341-85.5Q397.681 176 480.5 176q82.819 0 155.659 31.5Q709 239 763 293t85.5 127Q880 493 880 575.734q0 82.734-31.5 155.5T763 858.316q-54 54.316-127 86Q563 976 480.266 976Zm.234-60Q622 916 721 816.5t99-241Q820 434 721.188 335 622.375 236 480 236q-141 0-240.5 98.812Q140 433.625 140 576q0 141 99.5 240.5t241 99.5Zm-.5-340Z"/></svg>
+                        <input type="file" name="avatar" accept="image/*" class="update__avatar-file">
+                    </div>
+            {% endif %}
+            </div>
+            <label for="id_email" class="update__label">Email:</label>
+            <input class="update__user-input" type="email" name="email" value="{{request.user.email}}" placeholder="E-mail" required="" id="id_email">
+            <label for="id_city" class="update__label">Город:</label>
+            <input class="update__user-input" type="text" name="city" value="{{request.user.profile.city}}" maxlength="200" id="id_city">
+            <label for="id_full_name" class="update__label">ФИО:</label>
+            <input class="update__user-input" type="text" name="full_name" value="{{request.user.profile.full_name}}" maxlength="200" required="" id="id_full_name">
+            <button type="submit" class="register__btn">Обновить</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

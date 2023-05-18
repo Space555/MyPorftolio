@@ -22,7 +22,12 @@
                     <span class="header__date">{% now 'j.m.Y' %}</span>
                     <a href="/" class="header__top-logo link">SITEview</a>
                     {% if request.user.is_authenticated %}
-                    <a href="#" class="header__user-link link">{{request.user.username}}</a>
+                    {% if request.user.profile.avatar %}
+                       <img src="{{request.user.profile.avatar.url}}" alt="{{request.user.username}}" class="header__photo">
+                   {% else %}
+                        <img src="{% static 'index/img/icon-user.png' %}" alt="{{account.user.username}}" class="header__photo">
+                   {% endif %}
+                    <a href="{% url 'account' pk=request.user.pk %}" class="header__user-link link">{{request.user.username}}</a>
                     <a href="{% url 'logout' %}" class="header__user-link link">Выход</a>
                     {% else %}
                     <a href="{% url 'login' %}" class="header__user-link link">Войти</a>
@@ -35,7 +40,7 @@
             <div class="container">
                 <nav class="header__bottom-nav">
                     <a href="/" class="header__bottom-nav-link link">Главная</a>
-                    <a href="/" class="header__bottom-nav-link link">Новости</a>
+                    <a href="{% url 'all_news' %}" class="header__bottom-nav-link link">Новости</a>
                     <a href="/" class="header__bottom-nav-link link">О нас</a>
                 </nav>
             </div>
