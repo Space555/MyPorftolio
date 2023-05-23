@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -6,13 +7,14 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, TemplateView, ListView
 from users.forms import ProfileForm, UserUpdateForm, ProfileUpdateForm
 from users.models import Profile
+from app_news.models import News
 
 
 class ProfileCreate(CreateView):
     model = User
     form_class = ProfileForm
     template_name = 'users/register.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -23,6 +25,7 @@ class ProfileCreate(CreateView):
                                full_name=full_name,
                                city=city,
                                avatar=avatar)
+        
         return response
 
 
@@ -30,6 +33,12 @@ class ProfileDetail(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'users/account.html'
     context_object_name = 'account'
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        user_posts = News.objects.filter(author=self.request.user)
+        context =  super().get_context_data(**kwargs)
+        context['user_posts'] = user_posts
+        return context
 
 
 @login_required

@@ -19,7 +19,7 @@
             <div class="container">
                 <h1 class="heading">Главная страница</h1>
                 <div class="header__top-info">
-                    <span class="header__date">{% now 'j.m.Y' %}</span>
+                    <span class="header__date">{% now 'j E Y' %}</span>
                     <a href="/" class="header__top-logo link">SITEview</a>
                     {% if request.user.is_authenticated %}
                     {% if request.user.profile.avatar %}

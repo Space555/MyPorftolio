@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-r7ml&4c6c_651oc72l%(ekura5e)eu6#9dg*(1i&!ognh5v9_j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'users.apps.UsersConfig',
     'app_news.apps.AppNewsConfig',
+    'multiupload',
+
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

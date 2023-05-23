@@ -1,0 +1,85 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{info_news.title}}
+{% endblock %}
+
+
+{% block content %}
+<section class="detail">
+    <div class="container">    
+        <div class="detail__all">
+            {% if info_news.image %}
+            <div class="detail__img-block">
+                <img src="{{info_news.image.url}}" alt="{{info_news.title}}" class="detail__image">
+            </div>
+            {% endif %}
+            <h2 class="detail__head">{{info_news.title}}</h2>
+            <p class="detail__text">{{info_news.descr}}</p>
+            <div class="detail__info-block">
+                <span class="detail__sourse">Источник: 
+                    <a href="{{info_news.link_new}}" class="detail__link link" target="_blank">{{info_news.sourse_new}}</a>
+                </span>
+                <span class="detail__created">{{info_news.created|date:"d E Y"}}</span>
+            </div>
+        </div>
+        
+        {% if info_news.author == request.user %}
+        <a href="{% url 'update_new' pk=info_news.pk %}" class="detail__news-link link">
+            <svg class="detail__svg" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M480 896q-133 0-226.5-93.5T160 576q0-133 93.5-226.5T480 256q85 0 149 34.5T740 385V256h60v254H546v-60h168q-38-60-97-97t-137-37q-109 0-184.5 75.5T220 576q0 109 75.5 184.5T480 836q83 0 152-47.5T728 663h62q-29 105-115 169t-195 64Z"/></svg>
+        </a>
+        <a href="{% url 'delete_new' pk=info_news.pk %}" class="detail__news-link link">
+            <svg class="detail__svg" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg>
+        </a>
+        {% endif %}
+
+        <div class="detail__comment-block">
+            {% with comment.count as total_comments %}
+                <h2 class="detail__comment-count">Комментарии: ({{ total_comments }})</h2>
+            {% endwith %}
+                {% if comment %}
+                    <ul class="comment_list list">
+                    {% for c in comment %}
+                        <li class="comment_list-item">
+                            <div class="detail__comment-user">
+                                <div class="comment_avatar-block">
+                                    {% if c.user.profile.avatar %}
+                                    <img src="{{c.user.profile.avatar.url }}" alt="{{ c.user.username }}" class="comment_avatar">
+                                    {% else %}  
+                                    <img src="{% static 'index/img/icon-user.png' %}" alt="{{ c.user.username }}" class="comment_avatar">
+                                    {% endif %} 
+                                </div>
+                                <div class="comment_user">
+                                    <span class="comment_username">{{ c.user.username }}</span>
+                                </div>
+                            </div>
+                            <div class="comment_data">
+                                <p class="comment_text">{{ c.text }}</p>
+                                <span class="comment_date">{{ c.created }}</span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="comment_no-comments">Пока нет комментариев</p>
+                {% endif %}
+            </div>
+
+        {% if request.user.is_authenticated %}
+            <div class="detail__form-block">
+                <form action="{% url 'news_detail' pk=object.pk %}" class="detail__form" method="post">
+                    {% csrf_token %}
+                    {{ form.text }}
+                    <button class="comment__form-btn" type="submit">Отправить</button>
+                </form>
+            </div>
+        {% else %}
+            <p>Комментарии могут оставлять только зарегистрированные пользователи</p>
+            <a href="{% url 'login' %}">Войти</a> |
+            <a href="{% url 'register' %}">Зарегистрироваться</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
+    

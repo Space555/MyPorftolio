@@ -25,10 +25,10 @@
                             <span class="news__username">{{n.author.username}}</span>
                         </div>
                     </div>
-                    <a href="#" class="news__detail-link link"><h3 class="news__head">{{n.title}}</h3></a>
+                    <a href="{% url 'news_detail' pk=n.pk %}" class="news__detail-link link"><h3 class="news__head">{{n.title}}</h3></a>
                     <div class="news__info">
                         <span class="news__span">{{n.category_new}}</span>
-                        <span class="news__span">{{n.created}}</span>
+                        <span class="news__span">{{n.created|date:"d E Y" }}</span>
                     </div>
                 </li>
             {% endfor %}

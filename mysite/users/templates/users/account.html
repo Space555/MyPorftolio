@@ -36,6 +36,15 @@
                    <a class="account__update-link link" href="{% url 'update' %}">Обновить</a>
                </div>
            </div>
+           <div class="account__myposts">
+            {% if user_posts %}
+            {% for my_post in user_posts  %}
+                <a href="{% url 'news_detail' pk=my_post.pk %}"><h3>{{my_post.title}}</h3></a>
+            {% endfor %}
+            {% else %}
+                <p>У вас пока нет постов</p>
+            {% endif %}
+           </div>
         </div>
     </section>
 {% endblock %}

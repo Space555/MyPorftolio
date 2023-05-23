@@ -1,0 +1,32 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+{% block title %}
+     Удаление {{object.title}}
+{% endblock %}
+
+
+{% block content %}
+
+<section class="delete">
+    <div class="container">
+        <h2 class="delete__quest">Вы точно хотите удалить новость 
+            <a href="{% url 'news_detail' pk=object.pk %}" class="delete__link link">
+                <span class="delete__span">{{object.title}}</span>
+            </a> ?
+        </h2>
+        <div class="delete__btn-block">
+            <div class="delete__no-block"><a href="{% url 'news_detail' pk=object.pk %}" class="delete__no link">Нет</a></div>
+            <div class="delete__yes-block">
+                <form class="delete__form" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="delete__btn" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    
+{% endblock content %}
+    
