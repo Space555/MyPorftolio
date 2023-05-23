@@ -12,7 +12,9 @@
         <div class="detail__all">
             {% if info_news.image %}
             <div class="detail__img-block">
-                <img src="{{info_news.image.url}}" alt="{{info_news.title}}" class="detail__image">
+                <a href="{{info_news.image.url}}" class="detail__link" target="_blank">
+                    <img src="{{info_news.image.url}}" alt="{{info_news.title}}" class="detail__image">
+                </a>
             </div>
             {% endif %}
             <h2 class="detail__head">{{info_news.title}}</h2>

@@ -63,3 +63,20 @@ class DeleteNews(DeleteView):
     model = News
     template_name = 'app_news/delete.html'
     success_url = reverse_lazy('all_news')
+
+
+
+class NewsByCategoryView(ListView):
+    """Представление для отображения новостей по категориям"""
+    template_name = 'app_news/category.html'
+    model = News
+    context_object_name = 'cats'
+
+    def get_queryset(self):
+        print(News.objects.filter(category_new_id=self.kwargs['pk']))
+        return News.objects.filter(category_new_id=self.kwargs['pk'])
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['category'] = Category.objects.get(id=self.kwargs['pk'])
+    #     return context

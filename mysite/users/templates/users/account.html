@@ -37,12 +37,13 @@
                </div>
            </div>
            <div class="account__myposts">
+            <h2 class="posts__heading">Мои публикации</h2>
             {% if user_posts %}
             {% for my_post in user_posts  %}
-                <a href="{% url 'news_detail' pk=my_post.pk %}"><h3>{{my_post.title}}</h3></a>
+            <h3 class="posts__head"><a href="{% url 'news_detail' pk=my_post.pk %}" class="posts__link link">{{my_post.title}}</a></h3>
             {% endfor %}
             {% else %}
-                <p>У вас пока нет постов</p>
+                <p class="posts__not">У вас пока нет публикаций</p>
             {% endif %}
            </div>
         </div>

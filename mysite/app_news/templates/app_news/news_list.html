@@ -27,7 +27,7 @@
                     </div>
                     <a href="{% url 'news_detail' pk=n.pk %}" class="news__detail-link link"><h3 class="news__head">{{n.title}}</h3></a>
                     <div class="news__info">
-                        <span class="news__span">{{n.category_new}}</span>
+                        <a href="{% url 'all_cats' pk=n.pk %}" class="news_detail-category link"><span class="news__span">{{n.category_new}}</span></a>
                         <span class="news__span">{{n.created|date:"d E Y" }}</span>
                     </div>
                 </li>
@@ -38,7 +38,9 @@
             Нет новостей
         </p>
         {% endif %}
+        {% if request.user.is_authenticated %}
         <a href="{% url 'create_news' %}" class="news__create link">Создать новость</a>
+        {% endif %}
     </div>
 </section>
     
