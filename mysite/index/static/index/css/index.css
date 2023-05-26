@@ -346,6 +346,7 @@ h1 {
 
 .hero__block {
     display: flex;
+    margin-bottom: 30px;
 }
 
 .hero_block-img {
@@ -1222,3 +1223,200 @@ h1 {
     color: #818181;
   }
   
+
+  /* Swiper */
+
+.slide {
+    padding: 100px 0;
+    background: #dfdfdf;
+}
+
+.slide__heading {
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 40px;
+    color: #424242;
+}
+
+.slide__span {
+    color: #00c334;
+}
+
+.myslider {
+    margin: 0 auto;
+    width: 90%;
+    cursor: pointer;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.slide__all {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.slide__icons {
+    margin-bottom: 30px;
+}
+
+.js {
+    margin-left: 42px;
+}
+
+.slide__icons-heading {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.slide__descr {
+    margin: 0 auto;
+    padding: 15px;
+    width: 70%;
+    font-size: 20px;
+    line-height: 150%;
+    color: #424242;
+    text-align: center;
+}
+
+
+/*Django Accordion*/
+
+.django {
+    padding: 80px 0;
+}
+
+.django__heading {
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 100%;
+    font-weight: 600;
+    color: #424242;
+}
+
+.django__info-text {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 70%;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 400;
+    color: #424242;
+}
+
+.django__acc-descr {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 900;
+    color: #8e8e8e;
+}
+
+.django__acc {
+    width: 100%;
+}
+
+.django__acc-item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    margin-top: -1px;
+    padding: 15px 0;
+    border-top: 1px solid #8e8e8e;
+    border-bottom: 1px solid #8e8e8e;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.django__acc-item:first-child {
+    margin: 0;
+}
+
+.django__acc-item:hover {
+    border-top: 1px solid #f69f30;
+    border-bottom: 1px solid #f69f30;
+    z-index: 1;
+}
+
+.django__acc-title {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 400;
+    color: #8e8e8e;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.django__acc-title::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.django__acc-item:hover .django__acc-title {
+    color: #f69f30;
+}
+
+.django__svg {
+    display: inline-block;
+    position: absolute;
+    align-items: center;
+    left: 97%;
+    top: 0;
+    fill: #8e8e8e;
+    transform: rotate(180deg);
+    transition: all .5s ease;
+}
+
+.django__svg::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.django__acc-item:hover .django__svg {
+    fill: #f69f30
+}
+
+.ui-accordion-content-active + .django__svg {
+    transform: rotate(360deg);
+}
+
+.django__descr-block {
+    padding: 20px;
+    width: 80%;
+}
+
+.django__acc-item-text {
+    margin: 0;
+    margin-left: 20px;
+    font-size: 15px;
+    line-height: 150%;
+    font-weight: 400;
+    color: #979797;
+}

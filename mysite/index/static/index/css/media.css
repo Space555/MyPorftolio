@@ -1,0 +1,33 @@
+@media(max-width: 1200px) {
+    .hero_block-img {
+        width: 40%;
+    }
+
+    .hero__block-text {
+        width: 60%;
+    }
+
+    .hero__block-heading {
+        font-size: 30px;
+    }
+
+    .hero__block-descr {
+        font-size: 20px;
+    }
+
+    .detail__head {
+        font-size: 30px;
+    }
+
+    .detail__sourse,
+    .detail__link,
+    .detail__created {
+        font-size: 15px;
+    }
+
+    .detail__svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+}

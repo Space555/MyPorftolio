@@ -1,0 +1,40 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+{% block title %}
+Новости по категории {{ object.title}}
+{% endblock title %}
+
+
+{% block content %}
+<section class="category">
+    <div class="container">
+        
+        {% if cats %}
+        <ul class="category__list list">
+            {% for cat in cats  %}
+            <li class="category__list-item">
+                <div class="category__news">
+                    {% if cat.image %}
+                    <div class="category__pic">
+                        <a href="{% url 'news_detail' pk=cat.pk %}" class="category__link">
+                            <img src="{{cat.image.url}}" alt="" class="category__img">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <h3 class="category__head"><a href="{% url 'news_detail' pk=cat.pk %}" class="category__link link">{{cat.title|truncatechars:"40"}}</a></h3>
+                    <span class="category_date">{{cat.created|date:"d E Y"}}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</section>
+
+
+
+
+    
+        
+{% endblock content %}
