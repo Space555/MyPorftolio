@@ -73,7 +73,6 @@ class NewsByCategoryView(ListView):
     context_object_name = 'cats'
 
     def get_queryset(self):
-        print(News.objects.filter(category_new_id=self.kwargs['pk']))
         return News.objects.filter(category_new_id=self.kwargs['pk'])
 
     # def get_context_data(self, **kwargs):

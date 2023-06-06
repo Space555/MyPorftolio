@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'index/img/django.ico' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
     <link rel="stylesheet" href="{% static 'index/css/media.css' %}">
@@ -21,30 +22,41 @@
             <div class="container">
                 <h1 class="heading">Главная страница</h1>
                 <div class="header__top-info">
-                    <span class="header__date">{% now 'j E Y' %}</span>
-                    <a href="/" class="header__top-logo link">SITEview</a>
-                    {% if request.user.is_authenticated %}
-                    {% if request.user.profile.avatar %}
-                       <img src="{{request.user.profile.avatar.url}}" alt="{{request.user.username}}" class="header__photo">
-                   {% else %}
-                        <img src="{% static 'index/img/icon-user.png' %}" alt="{{account.user.username}}" class="header__photo">
-                   {% endif %}
-                    <a href="{% url 'account' pk=request.user.pk %}" class="header__user-link link">{{request.user.username}}</a>
-                    <a href="{% url 'logout' %}" class="header__user-link link">Выход</a>
-                    {% else %}
-                    <a href="{% url 'login' %}" class="header__user-link link">Войти</a>
-                    <a href="{% url 'register' %}" class="header__user-link link">Регистрация</a>
-                    {% endif %}
+                    <div class="header__date-block">
+                        <span class="header__date">{% now 'j E Y' %}</span>
+                    </div>
+                    <div class="header__user-block">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.profile.avatar %}
+                        <img src="{{request.user.profile.avatar.url}}" alt="{{request.user.username}}" class="header__photo">
+                        {% else %}
+                            <img src="{% static 'index/img/icon-user.png' %}" alt="{{account.user.username}}" class="header__photo">
+                        {% endif %}
+                            <a href="{% url 'account' pk=request.user.pk %}" class="header__user-link link">{{request.user.username}}</a>
+                            <a href="{% url 'logout' %}" class="header__user-link link">Выход</a>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="header__user-link link">Войти</a>
+                            <a href="{% url 'register' %}" class="header__user-link link">Регистрация</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
         <div class="header__bottom">
             <div class="container">
-                <nav class="header__bottom-nav">
-                    <a href="/" class="header__bottom-nav-link link">Главная</a>
-                    <a href="{% url 'all_news' %}" class="header__bottom-nav-link link">Новости</a>
-                    <a href="/" class="header__bottom-nav-link link">О нас</a>
-                </nav>
+                <div class="header__bottom__nav-block">
+                    <a href="/" class="header__bottom-logo link">MySite</a>
+                    <div class="header__burger-menu">
+                        <a id="burger" href="#" class="header__menu-btn">
+                            <span class="header__burger-span"></span>
+                        </a>
+                        <nav id="menu" class="header__bottom-nav">
+                            <a href="/" class="header__bottom-nav-link link">Главная</a>
+                            <a href="{% url 'all_news' %}" class="header__bottom-nav-link link">Новости</a>
+                            <a href="/" class="header__bottom-nav-link link">О нас</a>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </header>

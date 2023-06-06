@@ -7,4 +7,4 @@ class Index(TemplateView):
 
 
 def page_404(request, exception):
-    return render(request, '404.html', {})
+    return render(request, 'index/404.html', {})

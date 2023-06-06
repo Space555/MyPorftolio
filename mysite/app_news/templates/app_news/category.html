@@ -9,32 +9,32 @@
 {% block content %}
 <section class="category">
     <div class="container">
-        
         {% if cats %}
-        <ul class="category__list list">
-            {% for cat in cats  %}
-            <li class="category__list-item">
-                <div class="category__news">
+        {% for cat in cats  %}
+                <div class="category__new">
                     {% if cat.image %}
                     <div class="category__pic">
-                        <a href="{% url 'news_detail' pk=cat.pk %}" class="category__link">
+                        <a href="{% url 'news_detail' pk=cat.pk %}" class="category__img-link link">
                             <img src="{{cat.image.url}}" alt="" class="category__img">
                         </a>
                     </div>
                     {% endif %}
-                    <h3 class="category__head"><a href="{% url 'news_detail' pk=cat.pk %}" class="category__link link">{{cat.title|truncatechars:"40"}}</a></h3>
-                    <span class="category_date">{{cat.created|date:"d E Y"}}</span>
+                    <div class="category__heading-link">
+                        <a href="{% url 'news_detail' pk=cat.pk %}" class="category__link link">{{cat.title|truncatechars:"40"}}</a>
+                    </div>
+                    <div class="category__date-span">
+                        <span class="category_date">{{cat.created|date:"d E Y H:i"}}</span>
+                    </div>
                 </div>
-            </li>
             {% endfor %}
-        </ul>
+        </div>   
+        {% else %}
+        <p class="category__not-news">
+            В данной категории пока новостей нет
+        </p>
         {% endif %}
+
     </div>
 </section>
 
-
-
-
-    
-        
 {% endblock content %}
