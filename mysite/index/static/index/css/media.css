@@ -569,6 +569,11 @@
         font-size: 20px;
     }
 
+    .hero__price-link {
+        padding: 20px 0;
+        font-size: 25px;
+    }
+
     .slide__icons-heading {
         margin-bottom: 10px;
         font-size: 30px;
@@ -779,6 +784,11 @@
 
     .hero__block-descr {
         font-size: 15px;
+    }
+
+    .hero__price-link {
+        padding: 15px 0;
+        font-size: 20px;
     }
 
     .slide__heading {

@@ -419,11 +419,30 @@ h1 {
 
 .hero__block-descr {
     margin: 0;
+    margin-bottom: 30px;
     padding: 15px;
     font-size: 26px;
     line-height: 150%;
     font-weight: 600;
     color: #ffffff;
+}
+
+.hero__price-link {
+    display: block;
+    padding: 30px 0;
+    border: none;
+    border-radius: 30px;
+    background-color: deeppink;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    transition: all .5s ease-in-out;
+}
+
+.hero__price-link:hover {
+    background-color: #00ff1a;
+    color: #0022ff;
 }
 
 /* Registration */
