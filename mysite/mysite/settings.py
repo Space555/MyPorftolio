@@ -26,23 +26,23 @@ SECRET_KEY = 'django-insecure-r7ml&4c6c_651oc72l%(ekura5e)eu6#9dg*(1i&!ognh5v9_j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'index.apps.IndexConfig',
+    'users.apps.UsersConfig',
+    'app_news.apps.AppNewsConfig',
+    'multiupload',
+    'app_board.apps.AppBoardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'index.apps.IndexConfig',
-    'users.apps.UsersConfig',
-    'app_news.apps.AppNewsConfig',
-    'multiupload',
-
 ]
 
 MIDDLEWARE = [
@@ -105,6 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -133,3 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

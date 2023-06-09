@@ -262,7 +262,7 @@ h1 {
 
 .header__bottom-nav-link {
     padding-bottom: 2px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 100%;
     font-weight: 400;
     color: #ffffff;
@@ -572,6 +572,18 @@ h1 {
 
 .login-input:hover {
     background: #d8d8d8;
+}
+
+.login__change-password {
+    font-size: 15px;
+    line-height: 100%;
+    font-weight: 600;
+    color: blue;
+    transition: color .5s ease-in-out;
+}
+
+.login__change-password:hover {
+    color: #00ff40;
 }
 
 /* Account */
@@ -1538,3 +1550,217 @@ h1 {
 
 
 /* end may block */
+
+/* reset password*/
+.reset {
+    padding: 150px 0;
+}
+
+.reset__heading {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1f1f1f;
+    text-align: center;
+}
+
+.reset__descr {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 25px;
+    line-height: 100%;
+    font-weight: 400;
+    color: #1f1f1f;
+    text-align: center;
+}
+
+.reset__form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.reset__email {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 600;
+    color: #424242;
+}
+
+.reset__email:focus {
+    outline-color: #00c334;
+}
+
+.errorlist {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.errorlist li {
+    font-size: 13px;
+    color: #ff8e8e;
+}
+
+.reset_btn {
+    padding: 20px 40px;
+    background-color: #000000;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    line-height: 100%;
+    font-weight: 600;
+    color: #00ff1a;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.reset_btn:hover {
+    background-color: #0022ff;
+    color: #ffffff;
+}
+
+.reset_btn:active {
+    transform: translateY(10px);
+}
+
+.done {
+    padding: 150px 0;
+}
+
+.done__heading,
+.done__descr {
+    text-align: center;
+}
+
+.complete {
+    padding: 150px 0;
+}
+
+.complete__heading,
+.complete__descr {
+    text-align: center;
+}
+
+.complete__heading {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #00a22b;
+}
+
+.complete__descr {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: #424242;
+
+}
+
+.complete__link {
+    color: #0022ff;
+    transition: color .5s ease-in-out;
+}
+
+.complete__link:hover {
+    color: #00a22b;
+}
+/* end reset password */
+
+.ul {
+    list-style: none;
+}
+
+/*block price*/
+
+.price {
+    padding: 150px 0;
+    border-top: 2px solid #ff0000;
+    border-bottom: 2px solid #ff0000;
+    background-image: url(bg/wall.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.price__heading {
+    margin: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 100%;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 9px 8px 5px #000000;
+}
+
+.price__list {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.price__list-item:not(:last-child) {
+    margin-bottom: 45px;
+}
+
+.price__block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price__marker {
+    width: 2%;
+}
+
+.price__head {
+    width: 35%;
+}
+
+.price__block-money {
+    width: 20%;
+}
+
+.price__circle {
+    width: 20px;
+    height: 20px;
+    fill: #ff0000;
+}
+
+.price__block-title {
+    margin: 0;
+    font-size: 35px;
+    color: #ffffff;
+    text-shadow: 8px 13px 5px #000000;
+}
+
+.price__block-price {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 10px 13px 5px #000000;
+}
+
+.price__money {
+    margin-left: 15px;
+    color: #ff0000;
+}
+
+.price__ruble {
+    width: 26px;
+    height: 26px;
+    fill: #ff0000;
+}
+
+/*endblock price*/

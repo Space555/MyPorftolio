@@ -2,30 +2,29 @@
 {% load static %}
 
 {% block title %}
-Новости по категории {{ object.title}}
+Новости по категории {{ cats.category_new.title}}
 {% endblock title %}
-
 
 {% block content %}
 <section class="category">
     <div class="container">
-        {% if cats %}
-        {% for cat in cats  %}
-                <div class="category__new">
-                    {% if cat.image %}
-                    <div class="category__pic">
-                        <a href="{% url 'news_detail' pk=cat.pk %}" class="category__img-link link">
-                            <img src="{{cat.image.url}}" alt="" class="category__img">
-                        </a>
-                    </div>
-                    {% endif %}
-                    <div class="category__heading-link">
-                        <a href="{% url 'news_detail' pk=cat.pk %}" class="category__link link">{{cat.title|truncatechars:"40"}}</a>
-                    </div>
-                    <div class="category__date-span">
-                        <span class="category_date">{{cat.created|date:"d E Y H:i"}}</span>
-                    </div>
+        {% if cats %}    
+        {% for cat in cats  %}  
+            <div class="category__new">
+                {% if cat.image %}
+                <div class="category__pic">
+                    <a href="{% url 'news_detail' pk=cat.pk %}" class="category__img-link link">
+                        <img src="{{cat.image.url}}" alt="" class="category__img">
+                    </a>
                 </div>
+                {% endif %}
+                <div class="category__heading-link">
+                    <a href="{% url 'news_detail' pk=cat.pk %}" class="category__link link">{{cat.title|truncatechars:"40"}}</a>
+                </div>
+                <div class="category__date-span">
+                    <span class="category_date">{{cat.created|date:"d E Y H:i"}}</span>
+                </div>
+            </div>
             {% endfor %}
         </div>   
         {% else %}
@@ -33,8 +32,6 @@
             В данной категории пока новостей нет
         </p>
         {% endif %}
-
     </div>
 </section>
-
 {% endblock content %}

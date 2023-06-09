@@ -14,7 +14,9 @@
             <input type="text" name="username" value="admin" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="login-input" placeholder="Введите имя пользователя">
             <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class="login-input" placeholder="Введите пароль">
             <button type="submit" class="register__btn loginng">Войти</button>
+            <a href="{% url 'password_reset' %}" class="login__change-password link">Забыли пароль?</a>
         </form>
+        
     </div>
 </section>
 {% endblock %}
