@@ -10,6 +10,12 @@
 <section class="news">
     <div class="container">
         {% if news %}
+        <div class="news__cats">
+            <h3 class="news__cats-title">Категории:</h3>
+            {% for c in category  %}
+                <a href="{% url 'all_cats' pk=c.pk %}" class="news__cats-link link">{{c.title}}</a>
+            {% endfor %} 
+        </div>
         <ul class="news__list list">
             {% for n in news  %}
                 <li class="news__list-item">
@@ -27,7 +33,7 @@
                     </div>
                     <a href="{% url 'news_detail' pk=n.pk %}" class="news__detail-link link"><h3 class="news__head">{{n.title}}</h3></a>
                     <div class="news__info">
-                        <a href="{% url 'all_cats' pk=n.pk %}" class="news_detail-category link"><span class="news__span">{{n.category_new}}</span></a>
+                        <span class="news__span">{{n.category_new}}</span>
                         <span class="news__span">{{n.created|date:"d E Y" }}</span>
                     </div>
                 </li>

@@ -1,0 +1,30 @@
+{% extends 'index/base.html' %}
+
+{% block title %}
+    Доска объявлений
+{% endblock title %}
+
+{% block content %}
+<section class="board">
+    <div class="container">
+    {% if boards %}
+        <ul class="ul">
+            
+            {% for b in boards %}
+            <li>
+                {{b.title}}
+                {{b.description}}
+                {{b.created}}
+                {{b.user.username}}
+            </li>
+                
+            {% endfor %}
+                
+        </ul>
+    {% endif %}   
+    </div>
+</section>
+    
+{% endblock content %}
+    
+    

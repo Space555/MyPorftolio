@@ -793,6 +793,38 @@ h1 {
     padding: 100px 0;
 }
 
+.news__cats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #eaeaea;
+    border-radius: 20px;
+}
+
+.news__cats-title {
+    margin: 0;
+    margin-right: 20px;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 600;
+}
+
+.news__cats-link {
+    margin-right: 3%;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 600;
+    color: #000000;
+    transition: all .3s ease-in-out;
+}
+
+.news__cats-link:hover {
+    color: orangered;
+    transform: scale(1.3);
+}
+
 .news__list {
     margin-bottom: 50px;
 }
